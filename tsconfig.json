@@ -15,8 +15,9 @@
         "baseUrl": ".",
         "experimentalDecorators":true,
         "emitDecoratorMetadata": true,
-        "experimentalDecorators": true,
         "strictPropertyInitialization": false,
+        "lib": ["es5", "es6", "dom"],
+        
     },
     "include": [
         "src/**/*.ts",

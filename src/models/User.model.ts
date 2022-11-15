@@ -1,10 +1,10 @@
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm'
 
-@Entity()
+@Entity('User')
 export default class User {
     @PrimaryGeneratedColumn()
       UID: string
 
-    @Column()
+    @Column('text', { nullable: true })
       password: string
 }

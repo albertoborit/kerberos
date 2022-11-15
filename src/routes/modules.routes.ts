@@ -5,8 +5,8 @@ const PasswordRoutes = express.Router()
 /**
  * For password verification
  * */
-PasswordRoutes.post('/', async (req, res) => {
-  return await verify(req.body.password, req.body.UUID)
+PasswordRoutes.post('/check-password', async (req, res) => {
+  res.json(await verify(req.body.password, req.body.UID))
 })
 
 export default PasswordRoutes
