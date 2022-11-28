@@ -1,12 +1,19 @@
 import express from 'express'
-import { verify } from '../modules/password.module'
-const PasswordRoutes = express.Router()
+import { verify, invalidTry } from '../modules/password.module'
+const SecurityRoutes = express.Router()
 
 /**
- * For password verification
+ * For password comparison from user UID on database
  * */
-PasswordRoutes.post('/check-password', async (req, res) => {
+SecurityRoutes.post('/check-password', async (req, res) => {
   res.json(await verify(req.body.password, req.body.UID))
 })
 
-export default PasswordRoutes
+/**
+  * Add invalid try counter to certain UID
+  * */
+SecurityRoutes.post('/invalid-try', async (req, res) => {
+  res.json(await invalidTry(req.body.UID))
+})
+
+export default SecurityRoutes
