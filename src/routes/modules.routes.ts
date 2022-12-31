@@ -6,7 +6,7 @@ const SecurityRoutes = express.Router()
  * For password comparison from user UID on database
  * */
 SecurityRoutes.post('/check-password', async (req, res) => {
-  res.json(await verify(req.body.password, req.body.UID))
+    res.json(await verify(req.body.password, req.body.UID))
 })
 
 /**

@@ -8,6 +8,6 @@ export default class User {
     @Column('text', { nullable: true })
       password: string
 
-    @Column('number', { nullable: true })
+    @Column('integer', { nullable: true })
       tries: number
 }

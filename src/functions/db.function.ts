@@ -9,16 +9,13 @@ export const getPasswordFromUUID = async (userUID:string) :Promise<any> => {
   }))?.password
 }
 
-export const addInvalidTry = async (userUID:string) :Promise<any> => {
-  const tries = await userRepository.findOne({
+export const addInvalidTry = async (userUID:string):Promise<any> => {
+  const response = (await userRepository.findOne({
     where:
       { UID: userUID }
   }))?.tries
 
-  return (await userRepository.update({
-    tries: tries+1,
-    where: {
-      UID: userUID
-    }
-  }))
+  return await userRepository.update(
+    userUID,
+    { tries: (response || 0) + 1 })
 }
